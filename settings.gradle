@@ -1,0 +1,5 @@
+rootProject.name = "KotlinSample"
+include ':app'
+include ':data'
+include ':entity'
+include ':domain'
