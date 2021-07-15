@@ -12,15 +12,14 @@ import co.id.cpn.entity.ResponseMovieDetail
 import co.id.cpn.entity.ResultState
 import co.id.cpn.kotlinsample.MainViewModel
 import co.id.cpn.kotlinsample.databinding.FragmentDetailBinding
-import dagger.hilt.android.AndroidEntryPoint
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
-@AndroidEntryPoint
 class DetailFragment : Fragment() {
     
     private var _binding: FragmentDetailBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: MainViewModel by activityViewModels()
+    private val viewModel: MainViewModel by sharedViewModel()
 
     private val safeArgs: DetailFragmentArgs by navArgs()
 

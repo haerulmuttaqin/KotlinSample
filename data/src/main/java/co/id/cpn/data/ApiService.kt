@@ -12,7 +12,8 @@ interface ApiService {
     
     @GET("movie/now_playing")
     suspend fun getNowPlaying(
-        @Query("api_key") api_key: String = "710c2f2a12afed796678c7144104b344"
+        @Query("api_key") apiKey: String = "710c2f2a12afed796678c7144104b344",
+        @Query("page") page: Int
     ): ResponseMovies
     
     @GET("movie/{id}")

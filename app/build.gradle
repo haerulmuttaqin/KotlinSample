@@ -2,7 +2,6 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'androidx.navigation.safeargs'
-apply plugin: 'dagger.hilt.android.plugin'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -48,12 +47,15 @@ dependencies {
     implementation rootProject.ext.main.googleMaterial
     implementation rootProject.ext.main.constraintLayout
     implementation rootProject.ext.main.activityKtx
+    implementation rootProject.ext.main.legacy
+    implementation rootProject.ext.main.recyclerView
     implementation rootProject.ext.architectureComponents.fragmentKtx
     implementation rootProject.ext.architectureComponents.navigationFragment
     implementation rootProject.ext.architectureComponents.livedataKtx
     implementation rootProject.ext.architectureComponents.viewmodelKtx
     implementation rootProject.ext.architectureComponents.navigationUi
     implementation rootProject.ext.architectureComponents.navigationFragment
+    implementation rootProject.ext.architectureComponents.paging
 
     implementation rootProject.ext.misc.coroutinesCore
     implementation rootProject.ext.misc.coroutinesAndroid
@@ -64,11 +66,15 @@ dependencies {
     implementation rootProject.ext.misc.moshi
     implementation rootProject.ext.misc.moshiKotlin
     implementation rootProject.ext.misc.glide
+
+    implementation rootProject.ext.misc.koinCore
+    implementation rootProject.ext.misc.koinAndroid
+    implementation rootProject.ext.misc.koinAndroidScope
+    implementation rootProject.ext.misc.koinViewModel
+    implementation rootProject.ext.misc.koinFragment
     
-    implementation rootProject.ext.misc.hiltAndroid
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.recyclerview:recyclerview:1.2.1'
-    kapt rootProject.ext.misc.hiltAndroidCompiler
+    /*implementation rootProject.ext.misc.hiltAndroid
+    kapt rootProject.ext.misc.hiltAndroidCompiler*/
     
     implementation rootProject.ext.architectureComponents.roomKtx
     annotationProcessor  rootProject.ext.architectureComponents.roomCompiler

@@ -1,19 +1,12 @@
 package co.id.cpn.domain.di
 
+import co.id.cpn.domain.MainRepository
 import co.id.cpn.domain.MainUseCase
 import co.id.cpn.domain.MainUseCaseImpl
-import dagger.Binds
-import dagger.Module
-import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
-import javax.inject.Singleton
+import org.koin.dsl.module
 
-@InstallIn(SingletonComponent::class)
-@Module
-abstract class UseCaseModule {
-
-    @Singleton
-    @Binds
-    internal abstract fun bindUseCase(mainUseCaseImpl: MainUseCaseImpl): MainUseCase
-    
+val usecaseModule = module {
+    single<MainUseCase> {
+        MainUseCaseImpl(get())
+    }
 }

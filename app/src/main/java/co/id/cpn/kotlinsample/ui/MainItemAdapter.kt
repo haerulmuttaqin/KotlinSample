@@ -2,6 +2,7 @@ package co.id.cpn.kotlinsample.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -9,8 +10,8 @@ import co.id.cpn.entity.ResultsItem
 import co.id.cpn.kotlinsample.databinding.ItemMainBinding
 import com.bumptech.glide.Glide
 
-class MainItemAdapter constructor(private val onItemClick: (ResultsItem) -> Unit) :
-    ListAdapter<ResultsItem, MainItemAdapter.ListItemViewHolder>(diffCallback) {
+class MainItemAdapter constructor(private val onItemClick: (ResultsItem?) -> Unit) :
+    PagingDataAdapter<ResultsItem, MainItemAdapter.ListItemViewHolder>(diffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListItemViewHolder {
         return ListItemViewHolder(ItemMainBinding.inflate(LayoutInflater.from(parent.context)))
@@ -24,9 +25,9 @@ class MainItemAdapter constructor(private val onItemClick: (ResultsItem) -> Unit
 
     class ListItemViewHolder(private var binding: ItemMainBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: ResultsItem) {
+        fun bind(item: ResultsItem?) {
             binding.apply {
-                itemTitle.text = item.title
+                itemTitle.text = item?.title
             }
         }
     }

@@ -6,6 +6,6 @@ import co.id.cpn.entity.ResultsItem
 import kotlinx.coroutines.flow.Flow
 
 interface MainRepository {
-    fun getNowPlaying(): Flow<ResultState<List<ResultsItem>>>
+    fun getNowPlaying(page: Int): Flow<ResultState<List<ResultsItem>>>
     fun getMovieDetailBy(id: Int): Flow<ResultState<ResponseMovieDetail>>
 }

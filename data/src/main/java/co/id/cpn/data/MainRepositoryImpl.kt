@@ -8,14 +8,12 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
-import javax.inject.Inject
 
-class MainRepositoryImpl @Inject constructor(private val apiService: ApiService) :
+class MainRepositoryImpl constructor(private val apiService: ApiService) :
     MainRepository {
-
-    override fun getNowPlaying(): Flow<ResultState<List<ResultsItem>>> = flow {
+    override fun getNowPlaying(page: Int): Flow<ResultState<List<ResultsItem>>> = flow {
         try {
-            val response = apiService.getNowPlaying()
+            val response = apiService.getNowPlaying(page = page)
             if (response.results.isNotEmpty()) {
                 emit(ResultState.Success(response.results))
             } else {
@@ -24,7 +22,20 @@ class MainRepositoryImpl @Inject constructor(private val apiService: ApiService)
         } catch (t: Throwable) {
             emit(ResultState.Error(t))
         }
-    }.flowOn(Dispatchers.IO)
+    }
+
+    /*override fun getNowPlaying(page: Int): Flow<ResultState<List<ResultsItem>>> = flow {
+        try {
+            val response = apiService.getNowPlaying("710c2f2a12afed796678c7144104b344", page)
+            if (response.results.isNotEmpty()) {
+                emit(ResultState.Success(response.results))
+            } else {
+                emit(ResultState.Empty)
+            }
+        } catch (t: Throwable) {
+            emit(ResultState.Error(t))
+        }
+    }.flowOn(Dispatchers.IO)*/
 
     override fun getMovieDetailBy(id: Int): Flow<ResultState<ResponseMovieDetail>> = flow {
         try {

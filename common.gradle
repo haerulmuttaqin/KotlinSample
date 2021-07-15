@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'androidx.navigation.safeargs'
-apply plugin: 'dagger.hilt.android.plugin'
+//apply plugin: 'dagger.hilt.android.plugin'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -41,11 +41,11 @@ dependencies {
     implementation rootProject.ext.main.googleMaterial
     implementation rootProject.ext.main.constraintLayout
 
-    /*implementation rootProject.ext.misc.koinCore
+    implementation rootProject.ext.misc.koinCore
     implementation rootProject.ext.misc.koinAndroid
     implementation rootProject.ext.misc.koinAndroidScope
     implementation rootProject.ext.misc.koinViewModel
-    implementation rootProject.ext.misc.koinFragment*/
+    implementation rootProject.ext.misc.koinFragment
     
     implementation rootProject.ext.misc.coroutinesCore
     implementation rootProject.ext.misc.coroutinesAndroid
@@ -56,13 +56,12 @@ dependencies {
     implementation rootProject.ext.misc.moshi
     implementation rootProject.ext.misc.moshiKotlin
     implementation rootProject.ext.misc.glide
-    implementation rootProject.ext.misc.hiltAndroid
-    kapt rootProject.ext.misc.hiltAndroidCompiler
 
     implementation rootProject.ext.architectureComponents.roomKtx
     annotationProcessor  rootProject.ext.architectureComponents.roomCompiler
     kapt rootProject.ext.architectureComponents.roomCompiler
 
+    implementation rootProject.ext.architectureComponents.paging
     implementation rootProject.ext.architectureComponents.livedataKtx
 
     testImplementation rootProject.ext.testing.junit
