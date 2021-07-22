@@ -21,18 +21,28 @@ class MainPagingSource constructor(private val repository: MainRepository) :
             val nextPageNumber = params.key ?: 1
             val nextPrevNumber = if (nextPageNumber == 1) null else nextPageNumber - 1
             val response = repository.getNowPlaying(page = nextPageNumber)
+            var throwable = Throwable()
             response.collect {
                 when(it) {
                     is ResultState.Success -> mutableListMovies.addAll(it.data)
-                    is ResultState.Error -> Log.e("DataSource", it.throwable.toString())
-                    is ResultState.Empty -> Log.e("DataSource", "Empty")
+                    is ResultState.Error -> {
+                        throwable = it.throwable
+                    }
+                    is ResultState.Empty -> {
+                        Log.e("DataSource", "Empty")
+                    }
                 }
             }
-            LoadResult.Page(
+
+            if (throwable.message != null) {
+                return LoadResult.Error(throwable)
+            }
+            return LoadResult.Page(
                 data = mutableListMovies,
                 prevKey = null,
                 nextKey = nextPageNumber + 1
             )
+            
         } catch (t: Throwable) {
             t.printStackTrace()
             LoadResult.Error(t)

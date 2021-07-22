@@ -63,6 +63,8 @@ dependencies {
 
     implementation rootProject.ext.architectureComponents.paging
     implementation rootProject.ext.architectureComponents.livedataKtx
+    
+    implementation rootProject.ext.architectureComponents.workManager
 
     testImplementation rootProject.ext.testing.junit
     androidTestImplementation rootProject.ext.testing.extJunit

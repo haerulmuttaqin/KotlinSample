@@ -79,6 +79,8 @@ dependencies {
     implementation rootProject.ext.architectureComponents.roomKtx
     annotationProcessor  rootProject.ext.architectureComponents.roomCompiler
     kapt rootProject.ext.architectureComponents.roomCompiler
+
+    implementation rootProject.ext.architectureComponents.workManager
     
     testImplementation rootProject.ext.testing.junit
     androidTestImplementation rootProject.ext.testing.extJunit

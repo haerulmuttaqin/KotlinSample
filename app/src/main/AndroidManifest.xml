@@ -12,9 +12,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KotlinSample">
-        <activity 
-            android:name=".ui.PagingActivity"
-            android:theme="@style/Theme.KotlinSample.NoActionBar"/>
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.KotlinSample.NoActionBar">

@@ -28,6 +28,10 @@ class MainItemAdapter constructor(private val onItemClick: (ResultsItem?) -> Uni
         fun bind(item: ResultsItem?) {
             binding.apply {
                 itemTitle.text = item?.title
+                Glide.with(binding.root.context)
+                    .load("https://api.themoviedb.org/3/${item?.backdropPath}")
+                    .into(poster)
+                
             }
         }
     }

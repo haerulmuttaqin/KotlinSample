@@ -30,7 +30,8 @@ ext {
             "roomRuntime"               : "androidx.room:room-runtime:2.3.0",
             "roomKtx"                   : "androidx.room:room-ktx:2.3.0",
             "roomCompiler"              : "androidx.room:room-compiler:2.3.0",
-            "paging"                    : "androidx.paging:paging-runtime:3.0.0"
+            "paging"                    : "androidx.paging:paging-runtime:3.0.0",
+            "workManager"               : "androidx.work:work-runtime-ktx:2.5.0"
     ]
 
     testing = [
