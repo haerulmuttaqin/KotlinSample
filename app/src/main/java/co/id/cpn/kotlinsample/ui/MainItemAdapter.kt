@@ -31,6 +31,8 @@ class MainItemAdapter constructor(private val onItemClick: (ResultsItem?) -> Uni
             }
         }
     }
+    
+    
 
     companion object {
         private val diffCallback = object : DiffUtil.ItemCallback<ResultsItem>() {

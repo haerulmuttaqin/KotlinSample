@@ -3,7 +3,7 @@
     package="co.id.cpn.kotlinsample">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    
+
     <application
         android:name=".MainApp"
         android:allowBackup="true"
@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KotlinSample">
         <activity 
+            android:name=".ui.PagingActivity"
+            android:theme="@style/Theme.KotlinSample.NoActionBar"/>
+        <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.KotlinSample.NoActionBar">
             <intent-filter>
